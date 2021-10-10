@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import CurrentForecast from "./components/CurrentForecast";
+import FutureForecast from "./components/FutureForecast";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [city, setCity] = useState("Ankara");
+  const [tempType, setTempType] = useState("°C");
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((json) => setData(json));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {data !== undefined ? (
+        <CurrentForecast
+          data={data}
+          tempType={tempType}
+          city={city}
+          setCity={setCity}
+        />
+      ) : (
+        <div>LOADING</div>
+      )}
+      <FutureForecast tempType={tempType} setTempType={setTempType} />
     </div>
   );
 }
