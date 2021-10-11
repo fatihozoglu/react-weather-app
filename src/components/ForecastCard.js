@@ -3,11 +3,11 @@
 function ForecastCard(props) {
     return (
         <div className="ForecastCard">
-            <span className="forecast-date">Tomorrow</span>
-            <img className="forecast-img" src="https://cdn5.vectorstock.com/i/1000x1000/91/54/rainy-weather-forecast-vector-17209154.jpg" alt="daily status" />
+            <span className="forecast-date">{props.date}</span>
+            <img className="forecast-img" src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`} alt="daily status" />
             <div className="max-min-temp">
-                <span className="max-temp">25{props.tempSign}</span> 
-                <span className="min-temp">12{props.tempSign}</span>
+                <span className="max-temp">{Math.round(props.max)}{props.tempSign}</span> 
+                <span className="min-temp">{Math.round(props.min)}{props.tempSign}</span>
             </div>
         </div>
     );

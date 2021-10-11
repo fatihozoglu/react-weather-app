@@ -5,25 +5,17 @@
     font-family: 'Raleway', sans-serif;
 }
 
-body {
-    width: 100vw;
-    height: 100vh;
-}
-
 #root {
-    width: 100%;
-    height: 100%;
     font-family: 'Raleway', sans-serif;
 }
 
 .App {
-    width: 100%;
-    height: 100%;
     display: flex;
 }
 
 .CurrentForecast {
     width: 30%;
+    min-height: 100vh;
     min-width: 288px;
     background-color: #1E213A;
     padding: 30px;
@@ -80,8 +72,8 @@ body {
 }
 
 .current-img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 .current-temp {
@@ -96,6 +88,7 @@ body {
 }
 
 .current-status {
+    text-align: center;
     font-size: 36px;
     font-weight: 600;
     color: #A09FB1;
@@ -103,7 +96,7 @@ body {
 }
 
 .date-container {
-    width: 60%;
+    width: 90%;
     display: flex;
     font-size: 18px;
     font-weight: 500;
@@ -113,6 +106,7 @@ body {
 }
 
 .location {
+    margin-top: 50px;
     font-size: 18px;
     font-weight: 600;
     color: #88869D;
@@ -152,18 +146,24 @@ body {
     display: none;
 }
 
+label.active {
+    background-color: #E7E7EB;
+    color: #110E3C;
+    font-weight: 800;
+}
+
 .forecast-card-container {
     width: 100%;
-    height: 150px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
     align-items: center;
 }
 
 .ForecastCard {
-    width: 130px;
-    height: 150px;
-    padding: 10px 0;
+    width: 150px;
+    height: 200px;
+    padding: 15px 0;
     color: #E7E7EB;
     background-color: #1E213A;
     display: flex;
@@ -182,50 +182,4 @@ body {
     justify-content: space-between;
     align-items: center;
     color: #b7b7c0;
-}
-
-.highlight-header {
-    font-size: 24px;
-    font-weight: 700;
-    color: #E7E7EB;
-    align-self: flex-start;
-}
-
-.highlight-container {
-    width: 100%;
-    height: 60%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.highlight {
-    width: 45%;
-    height: 40%;
-    background-color: #1E213A;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    color: #E7E7EB;
-}
-
-.highlight-title{
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.highlight-body {
-    font-size: 50px;
-    font-weight: 700;
-}
-
-.highlight-footer {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.highlight-span {
-    font-size: 30px;
-    font-weight: 400;
 }
