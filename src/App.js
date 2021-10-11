@@ -10,6 +10,8 @@ function App() {
 
   let unit = tempType === "°C" ? "metric" : "imperial";
 
+  console.log(data);
+
   useEffect( () => {
     let lat;
     let lon;

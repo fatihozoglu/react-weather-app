@@ -92,7 +92,17 @@
     font-size: 36px;
     font-weight: 600;
     color: #A09FB1;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+}
+
+.wind-container {
+    width: 100%;
+    color: #A09FB1;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .date-container {
@@ -106,7 +116,7 @@
 }
 
 .location {
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 18px;
     font-weight: 600;
     color: #88869D;
