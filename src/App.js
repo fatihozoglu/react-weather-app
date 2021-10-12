@@ -2,6 +2,7 @@ import "./App.css";
 import CurrentForecast from "./components/CurrentForecast";
 import FutureForecast from "./components/FutureForecast";
 import { useState, useEffect } from "react";
+import { WeatherProvider } from "./WeatherContext"
 
 function App() {
   const [city, setCity] = useState("Ankara");
@@ -9,8 +10,6 @@ function App() {
   const [data, setData] = useState();
 
   let unit = tempType === "°C" ? "metric" : "imperial";
-
-  console.log(data);
 
   useEffect( () => {
     let lat;
@@ -33,27 +32,27 @@ function App() {
   }, [city, unit]);
 
   return (
-    <div className="App">
-      {data !== undefined ? (
-        <CurrentForecast
-          data={data}
-          tempType={tempType}
-          city={city}
-          setCity={setCity}
-        />
-      ) : (
-        <div></div>
-      )}
-      {data !== undefined ? (
-        <FutureForecast
-          data={data}
-          tempType={tempType}
-          setTempType={setTempType}
-        />
-      ) : (
-        <div></div>
-      )}
-    </div>
+    <WeatherProvider value={data}>
+      <div className="App">
+        {data !== undefined ? (
+          <CurrentForecast
+            tempType={tempType}
+            city={city}
+            setCity={setCity}
+          />
+        ) : (
+          <div></div>
+        )}
+        {data !== undefined ? (
+          <FutureForecast
+            tempType={tempType}
+            setTempType={setTempType}
+          />
+        ) : (
+          <div></div>
+        )}
+      </div>
+    </WeatherProvider>
   );
 }
 

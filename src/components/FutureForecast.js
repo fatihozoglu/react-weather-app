@@ -1,6 +1,10 @@
+import { WeatherContext } from "../WeatherContext";
 import ForecastCard from "./ForecastCard";
+import {useContext} from "react"
 
 function FutureForecast(props) {
+  const context = useContext(WeatherContext);
+
   function handleInput(e) {
     if (props.tempType !== e.target.value) {
       props.setTempType(e.target.value);
@@ -30,7 +34,7 @@ function FutureForecast(props) {
         />
       </div>
       <div className="forecast-card-container">
-        {props.data.daily.slice(1).map((item) => {
+        {context.daily.slice(1).map((item) => {
           return (
             <ForecastCard
               key={item.dt}

@@ -1,13 +1,17 @@
 import { BiCurrentLocation } from "react-icons/bi";
 import { MdRoom } from "react-icons/md";
 import { FaArrowCircleUp } from "react-icons/fa";
+import { useContext } from "react"
+import { WeatherContext } from "../WeatherContext";
 
 function CurrentForecast(props) {
-  let icon = props.data.current.weather[0].icon;
-  let currentTemp = Math.round(props.data.current.temp);
-  let status = props.data.current.weather[0].description;
-  let date = new Date(props.data.current.dt * 1000).toDateString().slice(0, 10);
-  let deg = props.data.current.wind_deg;
+  const context = useContext(WeatherContext);
+  
+  let icon = context.current.weather[0].icon;
+  let currentTemp = Math.round(context.current.temp);
+  let status = context.current.weather[0].description;
+  let date = new Date(context.current.dt * 1000).toDateString().slice(0, 10);
+  let deg = context.current.wind_deg;
 
   return (
     <div className="CurrentForecast">
@@ -32,7 +36,7 @@ function CurrentForecast(props) {
       <p className="current-status">{status}</p>
       <div className="wind-container">
         <span>
-          Wind: {props.data.current.wind_speed}{" "}
+          Wind: {context.current.wind_speed}{" "}
           {props.tempType === "°C" ? "m/s" : "mph"}
         </span>
         <FaArrowCircleUp
